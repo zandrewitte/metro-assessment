@@ -5,20 +5,15 @@ This assessment is used as a introductory course to the SMACK stack
 ## Prerequisites 
 - It is mandatory to use Scala and it's ecosystem for this coding challenge.
 - Only use SMACK Stack technology for the implementation. (https://mesosphere.com/blog/smack-stack-new-lamp-stack/)
-- The ingested data has to be integrated in a dedicated domain model that you define.
-- The resulting artifacts have to be deployable as Docker container.
 - Data Source: http://api.metro.net/agencies/lametro/vehicles/
 - Map projection approach: Bing Maps Tile System (https://msdn.microsoft.com/en- us/library/bb259689.aspx)
-- The ingested data has to be buffered before enrichment and persistence.
-- The API has to be available for the assessment team for testing.
 - There has to be unit tests available for the specified user stories.
-- Optional: Cluster each component with a valuable amount of nodes
 
 ## Use Cases
 1. As a User I want to have data collected from the given data source into a Fast Data IoT stack and has to be available as hot and cold data.
 
 2. As a User I want to request a list of available vehicles out of a web based service API.
-    - Endpoint: **http://{host}:{port}/api/vehicles/list**
+    - Endpoint: **http://{host}:{port}/api/vehicles**
     - Request Type: **GET**
     - Responses:
         - **200** – List[Vehicle]
@@ -27,12 +22,12 @@ This assessment is used as a introductory course to the SMACK stack
         - Content-Type: `application/json`
 
 3. As a User I want to request the last position of a vehicle out of a web based service API.
-    - Endpoint: **http://{host}:{port}/api/ vehicles/vehicle/{vehicleId}/lastPosition**
+    - Endpoint: **http://{host}:{port}/api/ vehicles/{vehicleId}/lastPosition**
     - Request Type: **GET**
     - URL Parameter:
         -  Vehicle ID
     -  Responses:
-        - **200** - Trajectory of last position
+        - **200** - last position
         - **404**
         - **500** - Error case with error message
         - Content-Type: `application/json`
@@ -51,7 +46,7 @@ This assessment is used as a introductory course to the SMACK stack
             - Content-Type: `application/json`
         
     - Request to query a specific tile and get the vehicles currently located in the tile area:
-        - Endpoint: **http://{host}:{port}/api/tiles/tile/{tile_id}/availableVehicles**
+        - Endpoint: **http://{host}:{port}/api/tiles/{tile_id}/availableVehicles**
         - Request Type: **GET**
         - URL Parameter:
             - Tile identifier
@@ -78,7 +73,7 @@ This assessment is used as a introductory course to the SMACK stack
     - Metro Data Ingestion / Enrichment 
     - Metro API
     
-    as well as any additional components that you feel are neccessary to allow for scaling and separation of logic. 
+    as well as any additional components that you feel are necessary to allow for scaling and separation of logic.
 - Determine which queries you need to support and store data in such a way to facilitate this. 
 - One of your components must be responsible for merging hot and cold data. This means that your system must have the ability to merge data from storage (cassandra) and kafka to provide the most recent data set. 
 - Pay attention to the defined response types and ensure that your API conforms to this. 
