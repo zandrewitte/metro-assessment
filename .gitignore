@@ -1,0 +1,16 @@
+### Scala
+dist/*
+target/
+project/project/
+project/target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+.history
+.cache
+.lib/
+*.log
+
+### IntelliJ IDEA
+.idea/
