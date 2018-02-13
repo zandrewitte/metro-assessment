@@ -1,6 +1,6 @@
 # Metro Ingestion Assessment 
 
-This assessment is used as a introductory course for the ACDC (Automotive Cloud Data Collector) project. This assessment aims to familiarise you with the technologies and problems that you would face working on ACDC. 
+This assessment is used as a introductory course to the SMACK stack
 
 ## Prerequisites 
 - It is mandatory to use Scala and it's ecosystem for this coding challenge.
